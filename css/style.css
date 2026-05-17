@@ -388,3 +388,60 @@ footer {
   height: 14px;
   box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3);
 }
+
+/* ── Dark Theme ──────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:        #0f1923;
+  --surface:   #1a2a3a;
+  --text:      #e8edf2;
+  --dim:       #7a8ea0;
+  --accent:    #4fc3f7;
+  --accent-soft: rgba(79, 195, 247, 0.15);
+  --green:     #66bb6a;
+  --yellow:    #fdd835;
+  --red:       #ef5350;
+  --border:    #2a3a4a;
+  --shadow:    none;
+  --shadow-md: none;
+  --am-accent: #ffb74d;
+  --pm-accent: #b388ff;
+}
+
+[data-theme="dark"] .mode-badge.am {
+  background: rgba(255, 183, 77, 0.15);
+  color: var(--am-accent);
+}
+
+[data-theme="dark"] .mode-badge.pm {
+  background: rgba(179, 136, 255, 0.15);
+  color: var(--pm-accent);
+}
+
+[data-theme="dark"] .arrival-card.next {
+  box-shadow: none;
+  border-color: var(--accent);
+}
+
+[data-theme="dark"] .leaflet-tile-pane {
+  filter: brightness(0.7) contrast(1.1) saturate(0.3);
+}
+
+[data-theme="dark"] .checklist-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ── Theme Toggle Button ─────────────────────────────── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--dim);
+  transition: background 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--accent-soft);
+}
