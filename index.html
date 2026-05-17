@@ -21,19 +21,21 @@
     </header>
 
     <div class="content">
-      <main id="arrivals">
-        <div class="loading">Loading bus times…</div>
-      </main>
+      <div class="left-panel">
+        <main id="arrivals">
+          <div class="loading">Loading bus times…</div>
+        </main>
+        <aside id="map-container">
+          <div id="map"></div>
+          <div id="map-status" class="map-status">Locating buses…</div>
+        </aside>
+      </div>
 
       <div class="right-panel">
         <section id="checklist-container">
           <h2 id="checklist-title">Routine</h2>
           <ul id="checklist"></ul>
         </section>
-        <aside id="map-container">
-          <div id="map"></div>
-          <div id="map-status" class="map-status">Locating buses…</div>
-        </aside>
       </div>
     </div>
 
