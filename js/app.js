@@ -313,6 +313,25 @@ function checkModeChange() {
   }
 }
 
+// ── Theme Toggle ────────────────────────────────────────
+function getTheme() {
+  return localStorage.getItem("theme") || "light";
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  const btn = document.getElementById("theme-toggle");
+  btn.textContent = theme === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("theme", theme);
+}
+
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const next = getTheme() === "light" ? "dark" : "light";
+  applyTheme(next);
+});
+
+applyTheme(getTheme());
+
 // ── Init ────────────────────────────────────────────────
 applyMode();
 updateClock();
