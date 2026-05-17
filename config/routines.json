@@ -1,0 +1,22 @@
+{
+  "am": {
+    "label": "☀ Morning Routine",
+    "items": [
+      "Breakfast",
+      "Make bed",
+      "Teeth",
+      "Hair"
+    ]
+  },
+  "pm": {
+    "label": "🌙 Evening Routine",
+    "items": [
+      "Prep bag",
+      "Homework",
+      "Shower",
+      "Deodorant",
+      "Teeth",
+      "Duolingo"
+    ]
+  }
+}
