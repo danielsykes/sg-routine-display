@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Routine — Henry Park</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div id="clock"></div>
+      <div id="weather"></div>
+      <div id="mode-badge" class="mode-badge">AM</div>
+      <div class="route-badge">92</div>
+      <div class="stop-name">Henry Park <span class="stop-code">12149</span></div>
+    </header>
+
+    <div class="content">
+      <main id="arrivals">
+        <div class="loading">Loading bus times…</div>
+      </main>
+
+      <div class="right-panel">
+        <section id="checklist-container">
+          <h2 id="checklist-title">Routine</h2>
+          <ul id="checklist"></ul>
+        </section>
+        <aside id="map-container">
+          <div id="map"></div>
+          <div id="map-status" class="map-status">Locating buses…</div>
+        </aside>
+      </div>
+    </div>
+
+    <footer>
+      <span id="updated"></span>
+      <span class="source">LTA DataMall</span>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js?v=1"></script>
+</body>
+</html>

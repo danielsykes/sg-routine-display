@@ -1,0 +1,349 @@
+/* ── Reset & Base ────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg:       #0f1923;
+  --surface:  #1a2a3a;
+  --text:     #e8edf2;
+  --dim:      #7a8ea0;
+  --accent:   #4fc3f7;
+  --green:    #66bb6a;
+  --yellow:   #fdd835;
+  --red:      #ef5350;
+  --am-accent: #ffb74d;
+  --pm-accent: #7c4dff;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+
+/* ── Layout (optimised for 1024×600 Nest Hub) ────────── */
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px 32px;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+#clock {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dim);
+  margin-right: auto;
+}
+
+#weather {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--dim);
+}
+
+.weather-temp {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.weather-icon { font-size: 1.3rem; }
+
+.mode-badge {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mode-badge.am {
+  background: var(--am-accent);
+  color: var(--bg);
+}
+
+.mode-badge.pm {
+  background: var(--pm-accent);
+  color: #fff;
+}
+
+.route-badge {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 4px 20px;
+  border-radius: 8px;
+  line-height: 1.2;
+}
+
+.stop-name {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.stop-code {
+  font-size: 0.85rem;
+  color: var(--dim);
+  font-weight: 400;
+}
+
+/* ── Content Grid ────────────────────────────────────── */
+.content {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  min-height: 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Arrival Cards ───────────────────────────────────── */
+.arrival-card {
+  flex: 1;
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: opacity 0.3s;
+}
+
+.arrival-card.next {
+  border: 2px solid var(--accent);
+}
+
+.arrival-label {
+  font-size: 0.9rem;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 40px;
+}
+
+.arrival-minutes {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 80px;
+}
+
+.arrival-unit {
+  font-size: 1.1rem;
+  color: var(--dim);
+}
+
+.arrival-eta {
+  font-size: 0.85rem;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.arrival-visit {
+  font-size: 0.7rem;
+  color: var(--dim);
+  background: rgba(122, 142, 160, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ── Load Indicator ──────────────────────────────────── */
+.load-indicator {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.load-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.load-sea { background: var(--green); }
+.load-sda { background: var(--yellow); }
+.load-lsd { background: var(--red); }
+
+/* ── States ──────────────────────────────────────────── */
+.loading, .error-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.4rem;
+  color: var(--dim);
+}
+
+.error-msg { color: var(--red); }
+.arriving { color: var(--green); }
+
+.service-offline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px;
+  text-align: center;
+}
+
+.offline-title {
+  font-size: 1.6rem;
+  color: var(--dim);
+}
+
+.offline-detail {
+  font-size: 1.1rem;
+  color: var(--dim);
+  opacity: 0.7;
+}
+
+.offline-next {
+  font-size: 1.3rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Right Panel ─────────────────────────────────────── */
+.right-panel {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+/* ── Checklist ───────────────────────────────────────── */
+#checklist-container {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 16px 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+#checklist-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+#checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.checklist-item::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--dim);
+  flex-shrink: 0;
+}
+
+.mode-am .checklist-item::before {
+  border-color: var(--am-accent);
+}
+
+.mode-pm .checklist-item::before {
+  border-color: var(--pm-accent);
+}
+
+/* ── Map ─────────────────────────────────────────────── */
+#map-container {
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+#map {
+  flex: 1;
+  min-height: 0;
+  border-radius: 16px;
+}
+
+.map-status {
+  text-align: center;
+  padding: 4px;
+  font-size: 0.75rem;
+  color: var(--dim);
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--dim);
+}
+
+/* ── Map Styling ─────────────────────────────────────── */
+.leaflet-tile-pane { filter: brightness(0.7) contrast(1.1) saturate(0.3); }
+.leaflet-control-attribution { display: none !important; }
+
+.bus-icon {
+  background: var(--accent);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  box-shadow: 0 0 8px rgba(79, 195, 247, 0.6);
+}
+
+.bus-icon-dim {
+  background: var(--dim);
+  border: 2px solid #556;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+}
+
+.stop-icon {
+  background: var(--red);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  box-shadow: 0 0 6px rgba(239, 83, 80, 0.5);
+}
