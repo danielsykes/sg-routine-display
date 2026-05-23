@@ -5,3 +5,6 @@ node_modules/
 # Private config (contains location data, bus stop, GPS coordinates)
 config/stop.json
 config/routines.json
+
+# Wrangler build artifacts
+worker/.wrangler/
