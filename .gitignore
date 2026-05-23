@@ -4,3 +4,4 @@ node_modules/
 
 # Wrangler build artifacts
 worker/.wrangler/
+.wrangler/
