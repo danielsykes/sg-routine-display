@@ -1,3 +1,7 @@
 node_modules/
 .DS_Store
 *.log
+
+# Private config (contains location data, bus stop, GPS coordinates)
+config/stop.json
+config/routines.json

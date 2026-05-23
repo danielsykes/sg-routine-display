@@ -1,0 +1,19 @@
+{
+  "config": {
+    "apiUrl": "https://sg-bus-proxy.danielsykes.workers.dev",
+    "busStopCode": "YOUR_BUS_STOP_CODE",
+    "serviceNo": "YOUR_SERVICE_NUMBER",
+    "stopLat": 1.3521,
+    "stopLng": 103.8198,
+    "weatherArea": "YOUR_AREA",
+    "stopName": "My Stop"
+  },
+  "schedule": {
+    "WD_FirstBus": "06:00",
+    "WD_LastBus": "23:00",
+    "SAT_FirstBus": "06:00",
+    "SAT_LastBus": "23:00",
+    "SUN_FirstBus": "07:00",
+    "SUN_LastBus": "22:00"
+  }
+}

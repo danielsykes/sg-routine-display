@@ -51,7 +51,7 @@ export function initMap() {
   const stopIcon = L.divIcon({ className: "stop-icon", iconSize: [16, 16] });
   L.marker([CONFIG.stopLat, CONFIG.stopLng], { icon: stopIcon })
     .addTo(map)
-    .bindTooltip("Henry Park", { permanent: true, direction: "top", className: "stop-tooltip", offset: [0, -12] });
+    .bindTooltip(CONFIG.stopName || "Bus Stop", { permanent: true, direction: "top", className: "stop-tooltip", offset: [0, -12] });
 }
 
 function updateBusMarkers(buses) {

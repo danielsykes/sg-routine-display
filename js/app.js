@@ -2,7 +2,7 @@
  * sg-routine-display — AM/PM routine dashboard with Bus 92 arrivals
  * Entry point — orchestrates modules.
  */
-import { CONFIG } from "./modules/config.js";
+import { CONFIG, loadConfig } from "./modules/config.js";
 import { startClock } from "./modules/clock.js";
 import { getMode, applyMode } from "./modules/mode.js";
 import { refreshWeather } from "./modules/weather.js";
@@ -34,16 +34,21 @@ function checkModeChange() {
 }
 
 // ── Init ────────────────────────────────────────────────
-initThemeToggle();
-applyMode();
-startClock();
-initMap();
+async function init() {
+  await loadConfig();
+  initThemeToggle();
+  applyMode();
+  startClock();
+  initMap();
 
-setInterval(checkModeChange, 60_000);
+  setInterval(checkModeChange, 60_000);
 
-loadRoutines();
-refresh();
-setInterval(refresh, CONFIG.refreshInterval);
+  loadRoutines();
+  refresh();
+  setInterval(refresh, CONFIG.refreshInterval);
 
-refreshWeather();
-setInterval(refreshWeather, 300_000);
+  refreshWeather();
+  setInterval(refreshWeather, 300_000);
+}
+
+init();

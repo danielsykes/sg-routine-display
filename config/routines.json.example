@@ -1,0 +1,18 @@
+{
+  "am": {
+    "label": "\u2600 Morning Routine",
+    "items": [
+      "Task 1",
+      "Task 2",
+      "Task 3"
+    ]
+  },
+  "pm": {
+    "label": "\ud83c\udf19 Evening Routine",
+    "items": [
+      "Task 1",
+      "Task 2",
+      "Task 3"
+    ]
+  }
+}

@@ -101,8 +101,8 @@ export default {
       return errorResponse(405, "Method not allowed", origin);
     }
 
-    // Origin check (allow direct browser navigation for debugging, but block cross-origin)
-    if (origin && !isAllowedOrigin(origin)) {
+    // Origin check — require Origin header from all callers
+    if (!origin || !isAllowedOrigin(origin)) {
       return errorResponse(403, "Origin not allowed", null);
     }
 
