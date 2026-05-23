@@ -7,4 +7,4 @@ compatibility_date = "2024-01-01"
 # Then paste the binding ID below
 [[kv_namespaces]]
 binding = "RATE_LIMIT"
-id = "YOUR_KV_NAMESPACE_ID_HERE"
+id = "ced8ce95a5b944bb97a1a26fa822d6cc"
