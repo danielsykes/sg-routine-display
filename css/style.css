@@ -225,7 +225,16 @@ main {
 }
 
 .error-msg { color: var(--red); }
-.arriving { color: var(--green); }
+
+.arriving {
+  color: var(--green);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.04); }
+}
 
 .service-offline {
   display: flex;
@@ -274,12 +283,49 @@ main {
   border: 1px solid var(--border);
 }
 
+.checklist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
 #checklist-title {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 14px;
   color: var(--text);
   letter-spacing: -0.01em;
+}
+
+.checklist-progress {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dim);
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  transition: background 0.3s, color 0.3s;
+}
+
+.checklist-progress.all-done {
+  background: var(--green);
+  color: #fff;
+}
+
+.progress-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
 }
 
 #checklist {
@@ -298,11 +344,21 @@ main {
   border-radius: 8px;
   color: var(--text);
   font-weight: 400;
-  transition: background 0.15s;
+  transition: background 0.15s, opacity 0.3s;
+  cursor: pointer;
+  user-select: none;
 }
 
 .checklist-item:hover {
   background: rgba(0, 0, 0, 0.02);
+}
+
+.checklist-item.done {
+  opacity: 0.45;
+}
+
+.checklist-item.done .checklist-text {
+  text-decoration: line-through;
 }
 
 .checklist-item::before {
@@ -312,6 +368,12 @@ main {
   border-radius: 50%;
   border: 2px solid var(--border);
   flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.checklist-item.done::before {
+  background: var(--green);
+  border-color: var(--green);
 }
 
 .mode-am .checklist-item::before {
@@ -320,6 +382,24 @@ main {
 
 .mode-pm .checklist-item::before {
   border-color: var(--pm-accent);
+}
+
+/* ── Rain Alert Banner ────────────────────────────────── */
+.rain-alert {
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 8px 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+[data-theme="dark"] .rain-alert {
+  background: rgba(254, 243, 199, 0.12);
+  color: #fbbf24;
 }
 
 /* ── Map ─────────────────────────────────────────────── */
