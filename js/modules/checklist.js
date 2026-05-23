@@ -71,7 +71,7 @@ export function renderChecklist() {
   document.getElementById("checklist-title").textContent = data.label;
 
   const ul = document.getElementById("checklist");
-  ul.innerHTML = "";
+  ul.replaceChildren();
 
   data.items.forEach((item, i) => {
     const key = stateKey(mode, i);

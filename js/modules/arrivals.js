@@ -106,7 +106,7 @@ function renderOffline() {
   const info = getNextServiceTime();
   const sched = getTodaySchedule();
 
-  main.innerHTML = "";
+  main.replaceChildren();
   const div = document.createElement("div");
   div.className = "service-offline";
 
@@ -212,22 +212,29 @@ export function renderArrivals(data) {
   }));
   updateBusMarkers(busPositions);
 
-  main.innerHTML = "";
+  main.replaceChildren();
   buses.forEach((bus, i) => {
     main.appendChild(createArrivalCard(bus, i));
   });
 }
 
+const ALLOWED_API_HOSTS = [
+  "sg-bus-proxy.danielsykes.workers.dev",
+];
+
 export async function fetchArrivals() {
-  const url = `${CONFIG.apiUrl}?BusStopCode=${CONFIG.busStopCode}&ServiceNo=${CONFIG.serviceNo}`;
-  const res = await fetch(url);
+  const url = new URL(`${CONFIG.apiUrl}?BusStopCode=${CONFIG.busStopCode}&ServiceNo=${CONFIG.serviceNo}`);
+  if (!ALLOWED_API_HOSTS.includes(url.hostname)) {
+    throw new Error("Blocked: untrusted API host");
+  }
+  const res = await fetch(url.toString());
   if (!res.ok) throw new Error(`API returned ${res.status}`);
   return res.json();
 }
 
 export function renderError(err) {
   const main = document.getElementById("arrivals");
-  main.innerHTML = "";
+  main.replaceChildren();
   const div = document.createElement("div");
   div.className = "error-msg";
   div.textContent = err.message;
