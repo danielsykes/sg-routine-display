@@ -1,5 +1,5 @@
 /**
- * sg-bus-proxy → bus-arrival-proxy — Cloudflare Worker
+ * bus-arrival-proxy — Cloudflare Worker
  * Proxies LTA DataMall bus arrival requests with:
  *   - Origin whitelist (only allowed domains can call)
  *   - Per-IP rate limiting (via Cloudflare KV)
