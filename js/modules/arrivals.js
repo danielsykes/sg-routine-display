@@ -220,6 +220,7 @@ export function renderArrivals(data) {
 
 const ALLOWED_API_HOSTS = [
   "bus-arrival-proxy.danielsykes.workers.dev",
+  "sg-bus-proxy.danielsykes.workers.dev",
 ];
 
 export async function fetchArrivals() {
