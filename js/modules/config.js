@@ -6,7 +6,7 @@
 
 // Defaults — overridden by config/stop.json at runtime
 export let CONFIG = {
-  apiUrl: "https://sg-bus-proxy.danielsykes.workers.dev",
+  apiUrl: "https://bus-arrival-proxy.danielsykes.workers.dev",
   busStopCode: "00000",
   serviceNo: "0",
   refreshInterval: 10_000,

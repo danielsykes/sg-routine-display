@@ -1,4 +1,4 @@
-# Cloudflare Worker — sg-bus-proxy
+# Cloudflare Worker — bus-arrival-proxy
 
 Hardened proxy for LTA DataMall bus arrival API.
 

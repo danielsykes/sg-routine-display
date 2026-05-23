@@ -1,6 +1,6 @@
 {
   "config": {
-    "apiUrl": "https://sg-bus-proxy.danielsykes.workers.dev",
+    "apiUrl": "https://bus-arrival-proxy.danielsykes.workers.dev",
     "busStopCode": "YOUR_BUS_STOP_CODE",
     "serviceNo": "YOUR_SERVICE_NUMBER",
     "stopLat": 1.3521,
