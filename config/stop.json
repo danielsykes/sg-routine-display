@@ -1,0 +1,19 @@
+{
+  "config": {
+    "apiUrl": "https://sg-bus-proxy.danielsykes.workers.dev",
+    "busStopCode": "12149",
+    "serviceNo": "92",
+    "stopLat": 1.31577,
+    "stopLng": 103.78266,
+    "weatherArea": "Bukit Timah",
+    "stopName": "Henry Park"
+  },
+  "schedule": {
+    "WD_FirstBus": "06:13",
+    "WD_LastBus": "22:01",
+    "SAT_FirstBus": "06:14",
+    "SAT_LastBus": "22:06",
+    "SUN_FirstBus": "06:55",
+    "SUN_LastBus": "21:25"
+  }
+}
